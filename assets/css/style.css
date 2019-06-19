@@ -113,7 +113,6 @@ div.h-bt-reserve{
 /* modal-date */
 input#h-modal-date{
     cursor: pointer;
-
 }
 
 header {
@@ -170,7 +169,6 @@ h2.h-about-title:after{
 }
 
 .h-food{
-  
     width:100%;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -181,6 +179,9 @@ h2.h-about-title:after{
     display: flex;
     align-items: center;
     background-color:#F8E6C2;
-   width:100%;
-   height: 150px;
+    width:100%;
+    height: 150px;
 }
+
+
+
