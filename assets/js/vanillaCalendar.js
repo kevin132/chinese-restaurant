@@ -1,4 +1,31 @@
-let optionsDay = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+const optionsDay = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+
+
+
+//var date=new Date;
+
+
+var lol=new Date;
+function formatDate(newDate) {
+    var d = new Date(newDate),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('/');
+}
+
+var newFormatDate=formatDate(lol);
+alert(newFormatDate);
+
+
+
+
+
+  
 var vanillaCalendar = {
 	month: document.querySelectorAll('[data-calendar-area="month"]')[0],
 	next: document.querySelectorAll('[data-calendar-toggle="next"]')[0],
@@ -8,13 +35,18 @@ var vanillaCalendar = {
 	date: new Date,
 	todaysDate: new Date,
     
+
 	init: function (t) {
 		this.options = t, this.date.setDate(1), this.createMonth(), this.createListeners()
 	},
+
+
+	// add  month previous and next 
 	createListeners: function () {
 		var t = this;
 		this.next.addEventListener("click", function () {
 			t.clearCalendar();
+			//next
 			var e = t.date.getMonth() + 1;
 			t.date.setMonth(e), t.createMonth()
 		}), this.previous.addEventListener("click", function () {
@@ -23,18 +55,29 @@ var vanillaCalendar = {
 			t.date.setMonth(e), t.createMonth()
 		})
 	},
+
+
 	createDay: function (t, e, a) {
 		var n = document.createElement("div"),
 			s = document.createElement("span");
-		s.innerHTML = t, n.className = "vcal-date", n.setAttribute("data-calendar-date", this.date.toLocaleDateString('fr-FR', optionsDay)), 1 === t && (n.style.marginLeft = 0 === e ? 6 * 14.28 + "%" : 14.28 * (e - 1) + "%"), this.options.disablePastDays && this.date <= this.todaysDate ? n.classList.add("vcal-date--disabled") : (n.classList.add("vcal-date--active"), n.setAttribute("data-calendar-status", "active")), this.date.toString() === this.todaysDate.toString() && n.classList.add("vcal-date--today"),
+		s.innerHTML = t, n.className = "vcal-date",
+		 	// french date 
+		n.setAttribute("data-calendar-date", this.date.toLocaleDateString('fr-FR', optionsDay)),
+		 1 === t && (n.style.marginLeft = 0 === e ? 6 * 14.28 + "%" : 14.28 * (e - 1) + "%"), 
+		   this.options.disablePastDays && this.date < this.todaysDate ? n.classList.add("vcal-date--disabled") : (n.classList.add("vcal-date--active"), 
+		   	n.setAttribute("data-calendar-status", "active")), 
+		   this.date.toString() === this.todaysDate.toString() && n.classList.add("vcal-date--today"),
 		 n.appendChild(s), 
 		this.month.appendChild(n)
 	},
+
+	// a explorer
 	dateClicked: function () {
 		var t = this;
 		this.activeDates = document.querySelectorAll('[data-calendar-status="active"]');
-		for (var e = 0; e < this.activeDates.length; e++) this.activeDates[e].addEventListener("click", function (e) {
-			document.querySelectorAll('[data-calendar-label="picked"]')[0].innerHTML = this.dataset.calendarDate, t.removeActiveClass(), this.classList.add("vcal-date--selected")
+		for (var e = 0; e < this.activeDates.length; e++)  this.activeDates[e].addEventListener("click", function (e) {
+			document.querySelector("#h-modal-date").value = this.dataset.calendarDate, t.removeActiveClass(), this.classList.add("vcal-date--selected")
+	
 		})
 	},
 	createMonth: function () {
@@ -51,3 +94,6 @@ var vanillaCalendar = {
 		for (var t = 0; t < this.activeDates.length; t++) this.activeDates[t].classList.remove("vcal-date--selected")
 	}
 };
+
+
+

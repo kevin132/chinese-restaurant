@@ -13,7 +13,8 @@
 	box-shadow: 0 4px 22px 0 rgba(0, 0, 0, .05);
 	margin: 0 auto;
 	overflow: hidden;
-	width: 100%;
+	width: 380px;
+	font-size: 15px;
 }
 
 #v-cal .vcal-btn {
@@ -123,17 +124,16 @@
 }
 
 #v-cal .vcal-date--today {
-	background-color: #10989e;
+	background-color: orange;
 	color: #fff
 }
 
 #v-cal .vcal-date--selected {
-	background-color: #e7e9ed;
-	color: #333
+	background-color: #10989e;
+	color: #fff
 }
 
 #v-cal .vcal-date--disabled {
 	border-radius: 0;
-
 	opacity: .5
 }
