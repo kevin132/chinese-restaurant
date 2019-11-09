@@ -1,30 +1,17 @@
-const optionsDay = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+Date.prototype.yyyymmdd = function() {
+  var mm = this.getMonth() + 1; // getMonth() is zero-based
+  var dd = this.getDate();
 
+  return [this.getFullYear(),
+          (mm>9 ? '' : '0') + mm,
+          (dd>9 ? '' : '0') + dd
+         ].join('/');
+};
 
+var date = new Date();
+date.yyyymmdd();
 
-//var date=new Date;
-
-
-var lol=new Date;
-function formatDate(newDate) {
-    var d = new Date(newDate),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-
-    return [year, month, day].join('/');
-}
-
-var newFormatDate=formatDate(lol);
-alert(newFormatDate);
-
-
-
-
-
+document.querySelector("#h-modal-date").value=date.yyyymmdd();
   
 var vanillaCalendar = {
 	month: document.querySelectorAll('[data-calendar-area="month"]')[0],
@@ -62,7 +49,7 @@ var vanillaCalendar = {
 			s = document.createElement("span");
 		s.innerHTML = t, n.className = "vcal-date",
 		 	// french date 
-		n.setAttribute("data-calendar-date", this.date.toLocaleDateString('fr-FR', optionsDay)),
+		n.setAttribute("data-calendar-date", this.date.yyyymmdd()),
 		 1 === t && (n.style.marginLeft = 0 === e ? 6 * 14.28 + "%" : 14.28 * (e - 1) + "%"), 
 		   this.options.disablePastDays && this.date < this.todaysDate ? n.classList.add("vcal-date--disabled") : (n.classList.add("vcal-date--active"), 
 		   	n.setAttribute("data-calendar-status", "active")), 
@@ -71,12 +58,14 @@ var vanillaCalendar = {
 		this.month.appendChild(n)
 	},
 
+
+
 	// a explorer
 	dateClicked: function () {
 		var t = this;
 		this.activeDates = document.querySelectorAll('[data-calendar-status="active"]');
 		for (var e = 0; e < this.activeDates.length; e++)  this.activeDates[e].addEventListener("click", function (e) {
-			document.querySelector("#h-modal-date").value = this.dataset.calendarDate, t.removeActiveClass(), this.classList.add("vcal-date--selected")
+			document.querySelector("#h-modal-date").value= this.dataset.calendarDate, t.removeActiveClass(), this.classList.add("vcal-date--selected")
 	
 		})
 	},
@@ -94,6 +83,7 @@ var vanillaCalendar = {
 		for (var t = 0; t < this.activeDates.length; t++) this.activeDates[t].classList.remove("vcal-date--selected")
 	}
 };
+
 
 
 

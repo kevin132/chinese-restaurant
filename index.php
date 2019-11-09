@@ -1,6 +1,4 @@
-     
-  <?php 
-
+ <?php 
   try{
     $db = new PDO('mysql:host=localhost;dbname=restaurant;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   }
@@ -19,8 +17,6 @@
           );
         }
   ?>
-
-
       <!doctype html>
       <html lang="en">
       <head>
@@ -87,41 +83,19 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
-    
-
-        <div class="modal-body">
-
-
-
-          
-
-
-
-        <!--form for date of reservation -->
-
-    <form action="index.php" method="POST">
-         <!-- input  date -->
-         <input type="text"  name="dateReservation" id="h-modal-date" data-calendar-label="picked">
-         <!--end input date -->
-                <button type="submit" name="saveDate">Save changes</button>
-    </form>
-
-      <!--end form -->
-    
-
-
-
-
-
-
-
-
-
-         <div class="container">
-
+ <!--calendar-->
+     <div class="modal-body">
+                <!--form for date of reservation -->
+                        <form action="index.php" method="POST">
+                             <!-- input  date -->
+                             <input type="text"  name="dateReservation" id="h-modal-date" data-calendar-label="picked">
+                             <input type="hidden"  name="dateReservationHidden" id="h-modal-date-hidden"  data-calendar-label="picked">
+                             <!--end input date -->
+                                    <button type="submit" name="saveDate">Save changes</button>
+                        </form>
+                <!--end form -->
+        <div class="container">
           <div id="v-cal">
-
             <div class="vcal-header">
               <button class="vcal-btn" data-calendar-toggle="previous">
                 <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -132,14 +106,12 @@
               <div class="vcal-header__label" data-calendar-label="month">
                 March 2017
               </div>
-
               <button class="vcal-btn" data-calendar-toggle="next">
                 <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                 </svg>
               </button>
             </div>
-
             <div class="vcal-week">
               <span>L</span>
               <span>M</span>
@@ -149,20 +121,30 @@
               <span>S</span>
               <span>D</span>
             </div>
-
             <div class="vcal-body" data-calendar-area="month"></div>
           </div>
+             <!--time-->
+      <div id="timeReservation">
+
+        <!--create a table -->
+        <div class="mealsReservation">
+           Déjeuner
         </div>
-  
+        <div class="mealsReservation">
+          Dinner
+        </div>
       </div>
+      <!--endtime-->
+        </div>
+      </div>
+   
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
- 
       </div>
     </div>
   </div>
   </div>
-
+<!--end calendar -->
   <!--end modal -->
   <header class="d-flex justify-content-center flex-column ">
     <div class="container">
@@ -175,8 +157,6 @@
       </div>
     </div>
   </header>
-
-
 
   <section class="h-about d-flex justify-content-center align-items-center w-100">
     <div class="container">
