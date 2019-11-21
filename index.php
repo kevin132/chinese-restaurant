@@ -39,11 +39,11 @@
             <div class="logo">
               <li>
                 <a class="restaurant-title" href="#" id="res">
-             Elysées Hongkong
+                    <img src="assets/image/logo_resto.png" height="30"; width="180" id=logo class="mt-3 ml-4" alt="Elysées Hongkong restaurant">
                </a>
              </li>
            </div>
-           <div class="home-nav text-center d-flex align-items-center">
+           <div class="home-nav text-center d-flex align-items-center mt-3">
             <ul>
               <li>
                 <a class="nav-item nav-word" href="#">Accueil</a>
@@ -125,10 +125,9 @@
           </div>
              <!--time-->
       <div id="timeReservation">
-
         <!--create a table -->
         <div class="mealsReservation">
-           Déjeuner
+          Déjeuner
         </div>
         <div class="mealsReservation">
           Dinner
@@ -146,7 +145,7 @@
   </div>
 <!--end calendar -->
   <!--end modal -->
-  <header class="d-flex justify-content-center flex-column ">
+  <header class="d-flex justify-content-center flex-column">
     <div class="container">
       <div class="col-lg-7">
         <h1 class="h-header-text">Bienvenue<br>au restaurant Elysées HongKong</h1>
@@ -175,7 +174,6 @@
 
    </div>
   </div>
-
   </section>
 
   <div class="h-food">
@@ -209,13 +207,19 @@
     </div>
   </div>
   </section>
-
+<!--footer-->
   <footer class="h-foot">
     <div class="container">
       <div class="row h-100 ">
         <div class="col-lg-6 text-center">Adresse et contact</div>
 
-        <div class="col-lg-6 text-center">Disponible sur</div>
+        <div class="col-lg-6 text-center">
+          <div class="logoCompany">
+            <img src="assets/image/Deliveroo_logo.png" height="40" width="auto"alt="Logo Deleveroo">
+          </div>
+          <div class="logoCompany"></div>
+          <div class="logoCompany"></div>
+        </div>
       </div>
     </div>
   </footer>

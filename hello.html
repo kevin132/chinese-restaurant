@@ -1,46 +1,50 @@
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="stylesheet" href="assets/css/style.css">
-      <link rel="stylesheet" href="assets/css/reset.css">
-      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-      <link href="assets/css/vanillaCalendar.css" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      <script src="assets/js/jquery-3.4.1.min.js"></script>
-      <body>
-      	
-<h1>hello world</h1>
-
-<div id="res">res</div>
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>||Working with elements||</title>
+</head>
+<body>
+  <div id="div1">The text above has been created dynamically.</div>
 </body>
-
-
-<script>
-
-  var todayDate=new Date; 
-  
-  document.write(todayDate);
-  
-  function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-
-    return [year, month, day].join('/');
-}
-document.getElementById('res').innerHTML =  formatDate(todayDate) ;
-</script>
-<script type="text/javascript" src="assets/js/script.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/vanillaCalendar.js" ></script>
 </html>
+
+
+
+<script type="text/javascript">
+
+document.body.onload = addElement;
+
+function addElement () {
+  // crée un nouvel élément div
+  var newDiv = document.createElement("div");
+  // et lui donne un peu de contenu
+  var newContent = document.createTextNode('Hi there and greetings!');
+  // ajoute le nœud texte au nouveau div créé
+  newDiv.appendChild(newContent);
+  
+  // ajoute le nouvel élément créé et son contenu dans le DOM
+  var currentDiv = document.getElementById('div1');
+  document.body.insertBefore(newDiv, currentDiv);
+}
+
+var parent = document.createElement("div")
+
+parent.append("Du texte");
+console.log(parent)
+document.write(parent.textContent)
+
+
+
+// Étant donné le fragment de HTML suivant :
+//   <div id="divA">Ceci est un <span>exemple de</span> texte</div>
+
+// On obtient le contenu textuel :
+// |text| vaut "Ceci est un exemple de texte".
+
+// On définit le contenu textuel :
+//document.getElementById("divA").textContent = "Ceci est un exemple de texte";
+
+
+
+
+</script>
